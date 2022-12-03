@@ -18,8 +18,11 @@ class Article
 
   public function getArticles()
   {
-    $stmt = $this->pdo->prepare('SELECT * FROM `articles` ORDER BY `id` DESC');
+    $stmt = $this->pdo->prepare('SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
+    FROM articles 
+    JOIN categories ON articles.category_id = categories.id
+    JOIN authors ON articles.author_id = authors.id');
     $stmt->execute();
-    return $stmt->fetchAll();
+    return  $stmt->fetchAll();
   }
 }
