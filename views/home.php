@@ -17,7 +17,7 @@
     <div class='mt-10 flex items-center justify-center gap-5'>
       <h1 class='text-5xl font-semibold'>Blog</h1>
       <a class='rounded-md bg-slate-200 py-1.5 px-4 transition hover:bg-slate-800 text-sm hover:text-slate-100'
-        href='/admin.php'>
+        href='/admin/articles.php'>
         Go to Admin
       </a>
     </div>

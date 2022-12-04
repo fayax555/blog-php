@@ -9,6 +9,7 @@ try {
   $articles = $articleDB->getArticles();
   $categories = $categoryDB->getCategories();
   var_dump($categories);
+
   $title = 'Home';
   ob_start();
   include __DIR__ . '/../../views/admin/articles.php';
