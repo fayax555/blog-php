@@ -13,7 +13,6 @@
     <tr class='rounded-md pt-5 hover:bg-slate-100 [&>*]:px-5'>
       <td class='rounded-l-md py-4 font-semibold'><?= $category['id'] ?></td>
       <td class='py-4 font-semibold'><?= $category['name'] ?></td>
-      <td><?= $category['name'] ?></td>
 
       <td class='rounded-r-md'>
         <div class='flex items-center gap-4'>

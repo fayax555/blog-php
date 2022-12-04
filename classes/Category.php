@@ -19,4 +19,10 @@ class Category
     $stmt->execute();
     return $stmt->fetchAll();
   }
+
+  public function addCategory()
+  {
+    $stmt = $this->pdo->prepare('INSERT INTO categories (name) VALUES (:name)');
+    $stmt->execute([':name' => $this->name]);
+  }
 }
