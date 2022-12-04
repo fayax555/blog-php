@@ -1,14 +1,13 @@
 <?php
 try {
-  include __DIR__ . '/../../../classes/Article.php';
-  $articleDB = new Article();
-  $articles = $articleDB->getArticles();
+  include __DIR__ . '/../../../classes/Category.php';
+  $categoryDB = new Category();
+  $categories = $categoryDB->getCategories();
 
-  $title = 'Articles';
+  $title = 'Categories';
   $showAddBtn = true;
-
   ob_start();
-  include __DIR__ . '/../../../views/admin/articles/index.php';
+  include __DIR__ . '/../../../views/admin/categories/index.php';
   $output = ob_get_clean();
 } catch (PDOException $e) {
   $title = 'An error has occurred';
