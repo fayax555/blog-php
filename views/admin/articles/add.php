@@ -1,24 +1,52 @@
 <form class='px-5'>
   <div class='mb-6 flex items-center gap-4'>
-    <label for='Status' class='block w-24'>
+    <label for='status' class='block w-24'>
       Status
     </label>
-    <select id='Status' name='status'
+    <select id='status' name='status'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
-
       <?php
-      $statuses = [
-        ['name' => 'Draft'],
-        ['name' => 'Published'],
-      ];
-
       if (isset($statuses)) :
-        foreach ($statuses as $status) : ?>
-      <option value="<?= $status['name'] ?>"><?= $status['name'] ?></option>
+        foreach ($statuses as $status) :
+      ?>
+      <option value="<?= $status ?>"><?= $status ?></option>
       <?php endforeach;
       endif;
       ?>
+    </select>
+  </div>
 
+  <div class='mb-6 flex items-center gap-4'>
+    <label for='author' class='block w-24'>
+      Author
+    </label>
+    <select id='author' name='author'
+      class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
+      <?php
+      if (isset($authors)) :
+        foreach ($authors as $author) :
+      ?>
+      <option value="<?= $author['id'] ?>"><?= $author['name'] ?></option>
+      <?php endforeach;
+      endif;
+      ?>
+    </select>
+  </div>
+
+  <div class='mb-6 flex items-center gap-4'>
+    <label for='category' class='block w-24'>
+      Category
+    </label>
+    <select id='category' name='category'
+      class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
+      <?php
+      if (isset($categories)) :
+        foreach ($categories as $category) :
+      ?>
+      <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+      <?php endforeach;
+      endif;
+      ?>
     </select>
   </div>
 

@@ -10,8 +10,9 @@ try {
   $categories = $categoryDB->getCategories();
   var_dump($categories);
 
-  $title = 'Articles';
-  $showAddBtn = true;
+  $statuses = ['Draft', 'Published'];
+  $title = 'Add Articles';
+  $showAddBtn = false;
   ob_start();
   include __DIR__ . '/../../../views/admin/articles/add.php';
   $output = ob_get_clean();

@@ -3,8 +3,16 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/output.css">
   <title><?= $title ?></title>
+  <style>
+  html {
+    font-family: 'Nunito', sans-serif;
+  }
+  </style>
 </head>
 
 <body>
@@ -40,7 +48,12 @@
           ?>
           <a href="<?= "/admin/" . strtolower($title) . "/add.php"; ?>"
             class="flex items-center gap-2 rounded-md bg-slate-800 px-4 py-2 font-semibold text-slate-100 transition hover:bg-slate-600">
-            <aioutlineplus class="text-xl" />
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" t="1551322312294" viewBox="0 0 1024 1024"
+              version="1.1" class="text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <defs></defs>
+              <path d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z"></path>
+              <path d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z"></path>
+            </svg>
             <span><?= "Add " . $titleSingular[$title] ?></span>
           </a>
           <?php } ?>

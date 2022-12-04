@@ -8,7 +8,7 @@ try {
   $categoryDB = new Category();
   $articles = $articleDB->getArticles();
   $categories = $categoryDB->getCategories();
-  var_dump($categories);
+  // var_dump($categories);
 
   $title = 'Articles';
   $showAddBtn = true;
