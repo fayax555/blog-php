@@ -7,8 +7,7 @@
 
         <?php
         $navItems = ['Articles', 'Categories', 'Authors'];
-        foreach ($navItems as $navItem) :
-        ?>
+        foreach ($navItems as $navItem) : ?>
         <li>
           <a class="<?= $active === strtolower($navItem) ? 'bg-slate-200' : 'hover:bg-slate-200' ?> block w-full rounded-md py-2 px-4"
             href="/admin/<?= strtolower($navItem) ?>">
@@ -28,8 +27,7 @@
 
         <?php
         $titleSingular = ["Categories" => "Category", "Authors" => "Author", "Articles" => "Article"];
-        if ($showAddBtn) {
-        ?>
+        if ($showAddBtn) : ?>
         <a href="<?= "/admin/" . strtolower($title) . "/add.php"; ?>"
           class="flex items-center gap-2 rounded-md bg-slate-800 px-4 py-2 font-semibold text-slate-100 transition hover:bg-slate-600">
           <svg stroke="currentColor" fill="currentColor" stroke-width="0" t="1551322312294" viewBox="0 0 1024 1024"
@@ -40,7 +38,8 @@
           </svg>
           <span><?= "Add " . $titleSingular[$title] ?></span>
         </a>
-        <?php } ?>
+        <?php endif ?>
+
       </header>
       <?= $output ?>
     </section>

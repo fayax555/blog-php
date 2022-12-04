@@ -25,4 +25,16 @@ class Article
     $stmt->execute();
     return  $stmt->fetchAll();
   }
+
+  public function addArticle()
+  {
+    $stmt = $this->pdo->prepare('INSERT INTO articles (title, content, category_id, author_id, status) VALUES (:title, :content, :category_id, :author_id, :status)');
+    $stmt->execute([
+      ':title' => $this->title,
+      ':content' => $this->content,
+      ':category_id' => $this->category_id,
+      ':author_id' => $this->author_id,
+      ':status' => $this->status
+    ]);
+  }
 }

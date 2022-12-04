@@ -11,11 +11,13 @@
   </thead>
 
   <tbody class='translate-y-4 text-slate-700'>
+
+    <?php foreach ($articles as $article) : ?>
     <tr class='rounded-md pt-5 hover:bg-slate-100 [&>*]:px-5'>
-      <td class='rounded-l-md py-4 font-semibold'>1</td>
-      <td class='py-4 font-semibold'>Learn TypeScript in 5 minutes</td>
-      <td>Ali Adam</td>
-      <td>Programming</td>
+      <td class='rounded-l-md py-4 font-semibold'><?= $article['id'] ?></td>
+      <td class='py-4 font-semibold'><?= $article['title'] ?></td>
+      <td><?= $article['author_name'] ?></td>
+      <td><?= $article['category_name'] ?></td>
       <td>
         <div title='Published' class='h-3 w-3 rounded-full bg-slate-300'></div>
       </td>
@@ -42,5 +44,7 @@
         </div>
       </td>
     </tr>
+    <?php endforeach; ?>
+
   </tbody>
 </table>

@@ -1,9 +1,9 @@
-<form class='px-5'>
+<form class='px-5' action="" method="post">
   <div class='mb-6 flex items-center gap-4'>
     <label for='status' class='block w-24'>
       Status
     </label>
-    <select id='status' name='status'
+    <select required id='status' name='status'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
       <?php
       if (isset($statuses)) :
@@ -20,7 +20,7 @@
     <label for='author' class='block w-24'>
       Author
     </label>
-    <select id='author' name='author'
+    <select required id='author' name='author'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
       <?php
       if (isset($authors)) :
@@ -37,7 +37,7 @@
     <label for='category' class='block w-24'>
       Category
     </label>
-    <select id='category' name='category'
+    <select required id='category' name='category'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
       <?php
       if (isset($categories)) :
@@ -53,13 +53,13 @@
   <label for='title' class='mb-2 mt-10 block'>
     Title
   </label>
-  <input type='text' id='title' name='title'
+  <input required type='text' id='title' name='title'
     class='block w-full rounded-md border-2 border-slate-500 px-4 py-2 text-lg' />
 
   <label for='content' class='mb-2 mt-8 block'>
     Content
   </label>
-  <textarea id='content' name='content'
+  <textarea required id='content' name='content'
     class='block min-h-[300px] w-full rounded-md border-2 border-slate-500 p-4 text-lg'></textarea>
 
   <button type='submit'
