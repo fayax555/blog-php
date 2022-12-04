@@ -18,7 +18,7 @@ class Author
 
   public function getAuthors()
   {
-    $stmt = $this->pdo->prepare('SELECT * FROM `authors` ORDER BY `id` DESC');
+    $stmt = $this->pdo->prepare('SELECT * FROM `authors`');
     $stmt->execute();
     return $stmt->fetchAll();
   }

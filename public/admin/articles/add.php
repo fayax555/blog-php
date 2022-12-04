@@ -1,14 +1,13 @@
 <?php
 try {
   include __DIR__ . '/../../../classes/Home.php';
-  include __DIR__ . '/../../../classes/Article.php';
+  include __DIR__ . '/../../../classes/Author.php';
   include __DIR__ . '/../../../classes/Category.php';
   $home = new Home();
-  $articleDB = new Article();
+  $authorDB = new Author();
   $categoryDB = new Category();
-  $articles = $articleDB->getArticles();
   $categories = $categoryDB->getCategories();
-  var_dump($categories);
+  $authors = $authorDB->getAuthors();
 
   $statuses = ['Draft', 'Published'];
   $title = 'Add Articles';
