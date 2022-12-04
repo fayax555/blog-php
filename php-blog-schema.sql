@@ -1,9 +1,8 @@
 USE blog;
 
-DROP TABLE blog.articles;
-DROP TABLE blog.authors;
-DROP TABLE blog.categories;
-
+-- DROP TABLE blog.articles;
+-- DROP TABLE blog.authors;
+-- DROP TABLE blog.categories;
 
 CREATE TABLE blog.authors (
   id INT NOT NULL AUTO_INCREMENT,
@@ -36,20 +35,18 @@ INSERT INTO blog.authors (id, name, email) VALUES
 (2, 'Ali Adam', 'aliadam@gmail.com');
 
 INSERT INTO blog.categories (id, name) VALUES 
-(1, 'Programming'),
-(2, 'Frontend');
+(3, 'Programming'),
+(7, 'Frontend');
 
 INSERT INTO blog.articles (id, title, content, status, author_id, category_id) VALUES 
-(1, 'Learn TypeScript in 5 minutes', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', 'Published', 1, 2),
-(2, 'Complete Guide to CSS Media Queries', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', 'Draft', 2, 1);
+(1, 'Learn TypeScript in 5 minutes', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', 'Published', 1, 3),
+(2, 'Complete Guide to CSS Media Queries', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.', 'Draft', 2, 7);
 
 SELECT * FROM blog.authors;
 SELECT * FROM blog.categories;
-SELECT * FROM blog.articles;
 
-
-describe articles;
-describe `blog`.`authors`;
-
-
-show tables;
+SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
+FROM articles 
+JOIN categories ON articles.category_id = categories.id
+JOIN authors ON articles.author_id = authors.id
+ORDER BY articles.id ASC;
