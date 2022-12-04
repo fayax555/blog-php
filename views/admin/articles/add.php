@@ -1,4 +1,4 @@
-<form class='px-5' action="" method="post">
+<form class='px-5' method="post">
   <div class='mb-6 flex items-center gap-4'>
     <label for='status' class='block w-24'>
       Status

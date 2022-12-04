@@ -39,7 +39,6 @@
           <span><?= "Add " . $titleSingular[$title] ?></span>
         </a>
         <?php endif ?>
-
       </header>
       <?= $output ?>
     </section>
