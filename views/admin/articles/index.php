@@ -19,7 +19,9 @@
       <td><?= $article['author_name'] ?></td>
       <td><?= $article['category_name'] ?></td>
       <td>
-        <div title='Published' class='h-3 w-3 rounded-full bg-slate-300'></div>
+        <div title='Published'
+          class='h-3 w-3 rounded-full <?= $article['status'] === 'Published' ? 'bg-teal-500' : 'bg-slate-300' ?>'>
+        </div>
       </td>
       <td class='rounded-r-md'>
         <div class='flex items-center gap-4'>

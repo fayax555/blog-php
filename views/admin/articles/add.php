@@ -6,12 +6,10 @@
     <select required id='status' name='status'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
       <?php
-      if (isset($statuses)) :
-        foreach ($statuses as $status) :
+      foreach ($statuses as $status) :
       ?>
       <option value="<?= $status ?>"><?= $status ?></option>
       <?php endforeach;
-      endif;
       ?>
     </select>
   </div>
@@ -62,7 +60,7 @@
   <textarea required id='content' name='content'
     class='block min-h-[300px] w-full rounded-md border-2 border-slate-500 p-4 text-lg'></textarea>
 
-  <button type='submit'
+  <button type='submit' name="submit"
     class='mt-8 block w-[200px] rounded-md bg-slate-800 px-4 py-2 text-lg font-semibold text-slate-200 transition hover:bg-slate-600'>
     Add Article
   </button>

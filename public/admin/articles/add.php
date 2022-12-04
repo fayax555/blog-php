@@ -11,6 +11,10 @@ try {
   $authors = $authorDB->getAuthors();
   $article = new Article();
 
+  $statuses = ['Draft', 'Published'];
+  $title = 'Add Articles';
+  $showAddBtn = false;
+
   if (isset($_POST['submit'])) {
     $article->title = $_POST['title'];
     $article->content = $_POST['content'];
@@ -19,12 +23,10 @@ try {
     $article->category_id = $_POST['category'];
 
     $article->addArticle();
-    // header('location: article.php');
+    header('location: ./');
   } else {
     $article = null;
-    $statuses = ['Draft', 'Published'];
-    $title = 'Add Articles';
-    $showAddBtn = false;
+
     ob_start();
     include __DIR__ . '/../../../views/admin/articles/add.php';
     $output = ob_get_clean();
