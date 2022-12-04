@@ -11,7 +11,9 @@ try {
   var_dump($categories);
   $title = 'Home';
   // ob_start();
+  include __DIR__ . '/../views/header.php';
   include __DIR__ . '/../views/home.php';
+  include __DIR__ . '/../views/footer.php';
   // $output = ob_get_clean();
 } catch (PDOException $e) {
   $title = 'An error has occurred';
