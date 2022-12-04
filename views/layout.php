@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/output.css">
+  <link rel="stylesheet" href="/css/output.css">
   <title><?= $title ?></title>
 </head>
 
@@ -12,21 +12,17 @@
     <nav>
       <aside class='mt-24'>
         <ul class='grid rounded-md bg-slate-100 p-4 text-lg'>
+          <?php
+          $navItems = ['Articles', 'Categories', 'Authors'];
+          foreach ($navItems as $item) :
+          ?>
           <li>
-            <a class='block w-full rounded-md py-2 px-4' href='/admin/articles'>
-              Articles
+            <a class="<?= $active === strtolower($item) ? 'bg-slate-200' : 'hover:bg-slate-200' ?> block w-full rounded-md py-2 px-4"
+              href="/admin/<?= strtolower($item) ?>.php">
+              <?= $item ?>
             </a>
           </li>
-          <li>
-            <a class='block w-full rounded-md py-2 px-4' href='/admin/categories'>
-              Categories
-            </a>
-          </li>
-          <li>
-            <a class='block w-full rounded-md py-2 px-4' href='/admin/authors'>
-              Authors
-            </a>
-          </li>
+          <?php endforeach; ?>
         </ul>
       </aside>
     </nav>

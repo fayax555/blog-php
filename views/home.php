@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/output.css">
+  <link rel="stylesheet" href="/css/output.css">
   <title><?= $title ?></title>
 </head>
 
@@ -36,20 +36,6 @@
         <p><?= $article['content'] ?></p>
       </article>
       <?php endforeach; ?>
-      <!-- {articles.map((a) => (
-      <article key={a.id} className='rounded-md bg-slate-100 p-4'>
-        <span className='rounded-full bg-slate-300 px-4 py-1 text-xs text-slate-800'>
-          {a.category}
-        </span>
-        <div className='py-4'>
-          <h2 className='text-lg font-semibold'>{a.title}</h2>
-          <p className='text-sm text-slate-700'>
-            by <span className='font-semibold'>{a.author}</span>
-          </p>
-        </div>
-        <p>{a.content}</p>
-      </article>
-      ))} -->
     </section>
   </main>
 </body>
