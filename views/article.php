@@ -1,5 +1,4 @@
 <main class='mx-auto max-w-[70ch] px-4 py-2'>
-  <a href='/'>Home</a>
   <div class='mt-10 grid place-content-center gap-5'>
     <h1 class='text-center text-5xl font-semibold'><?= $title ?></h1>
     <div class='flex items-center justify-center gap-4'>

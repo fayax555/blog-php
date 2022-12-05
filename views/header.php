@@ -16,3 +16,12 @@
 </head>
 
 <body>
+  <nav class="max-w-[500px] flex gap-5 justify-center mx-auto py-4">
+    <a class='rounded-md hover:bg-slate-200 py-1.5 px-4 transition text-sm ' href='/'>
+      Home
+    </a>
+    <a class='rounded-md bg-slate-200 py-1.5 px-4 transition hover:bg-slate-800 text-sm hover:text-slate-100'
+      href='/admin/articles'>
+      Go to Admin
+    </a>
+  </nav>
