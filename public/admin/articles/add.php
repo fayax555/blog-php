@@ -4,10 +4,10 @@ try {
   include __DIR__ . '/../../../classes/Author.php';
   include __DIR__ . '/../../../classes/Category.php';
 
-  $authorDB = new Author();
-  $categoryDB = new Category();
-  $categories = $categoryDB->getCategories();
-  $authors = $authorDB->getAuthors();
+  $author = new Author();
+  $category = new Category();
+  $categories = $category->getCategories();
+  $authors = $author->getAuthors();
   $article = new Article();
 
   $statuses = ['Draft', 'Published'];
@@ -24,8 +24,6 @@ try {
     $article->addArticle();
     header('location: ./');
   } else {
-    $article = null;
-
     ob_start();
     include __DIR__ . '/../../../views/admin/articles/add.php';
     $output = ob_get_clean();

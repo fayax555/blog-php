@@ -13,8 +13,6 @@ try {
     $author->addAuthor();
     header('location: ./');
   } else {
-    $author = null;
-
     ob_start();
     include __DIR__ . '/../../../views/admin/authors/add.php';
     $output = ob_get_clean();

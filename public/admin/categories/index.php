@@ -1,8 +1,13 @@
 <?php
 try {
   include __DIR__ . '/../../../classes/Category.php';
-  $categoryDB = new Category();
-  $categories = $categoryDB->getCategories();
+  $category = new Category();
+  $categories = $category->getCategories();
+
+  if (isset($_POST['delete']) && isset($_POST['category_id'])) {
+    $category->deleteCategory($_POST['category_id']);
+    header('location: ./');
+  }
 
   $title = 'Categories';
   $showAddBtn = true;

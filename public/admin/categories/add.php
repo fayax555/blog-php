@@ -7,18 +7,15 @@ try {
   $title = 'Add Categories';
   $showAddBtn = false;
 
-  if (isset($_POST['submit'])) {
+  if (isset($_POST['add'])) {
     $category->name = htmlspecialchars($_POST['name']);
-
     $category->addCategory();
     header('location: ./');
-  } else {
-    $category = null;
-
-    ob_start();
-    include __DIR__ . '/../../../views/admin/categories/add.php';
-    $output = ob_get_clean();
   }
+
+  ob_start();
+  include __DIR__ . '/../../../views/admin/categories/add.php';
+  $output = ob_get_clean();
 } catch (PDOException $e) {
   $title = 'An error has occurred';
   $output = 'Database error: ' . $e->getMessage() . ' in ' .
