@@ -6,9 +6,9 @@ try {
 
   $showAddBtn = false;
   $editing = isset($_GET['id']);
-  $categoryName = isset($_GET['id']) ? $category->getCategory($_GET['id'])['name'] : '';
+  $categoryName = $editing ? $category->getCategory($_GET['id'])['name'] : '';
 
-  $title =   $editing ? "Edit Categories" : "Add Categories";
+  $title = $editing ? "Editing item in Categories" : "Add Categories";
 
   ob_start();
   include __DIR__ . '/../../../views/admin/categories/add.php';
