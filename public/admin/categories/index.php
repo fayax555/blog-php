@@ -4,13 +4,14 @@ try {
   $category = new Category();
   $categories = $category->getCategories();
 
+  $title = 'Categories';
+  $showAddBtn = true;
+
   if (isset($_POST['delete']) && isset($_POST['category_id'])) {
     $category->deleteCategory($_POST['category_id']);
     header('location: ./');
   }
 
-  $title = 'Categories';
-  $showAddBtn = true;
   ob_start();
   include __DIR__ . '/../../../views/admin/categories/index.php';
   $output = ob_get_clean();

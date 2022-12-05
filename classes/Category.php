@@ -12,9 +12,16 @@ class Category
     $this->pdo = $db->connect();
   }
 
+  public function getCategory($id)
+  {
+    $stmt = $this->pdo->prepare('SELECT * FROM categories WHERE id = :id');
+    $stmt->execute([':id' => $id]);
+    return $stmt->fetch();
+  }
+
   public function getCategories()
   {
-    $stmt = $this->pdo->prepare('SELECT * FROM `categories` ');
+    $stmt = $this->pdo->prepare('SELECT * FROM categories ORDER BY id');
     $stmt->execute();
     return $stmt->fetchAll();
   }
@@ -23,6 +30,12 @@ class Category
   {
     $stmt = $this->pdo->prepare('INSERT INTO categories (name) VALUES (:name)');
     $stmt->execute([':name' => $this->name]);
+  }
+
+  public function editCategory($id)
+  {
+    $stmt = $this->pdo->prepare('UPDATE categories SET name = :name WHERE id = :id');
+    $stmt->execute([':name' => $this->name, ':id' => $id]);
   }
 
   public function deleteCategory($id)

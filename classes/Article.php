@@ -21,7 +21,7 @@ class Article
     FROM articles 
     JOIN categories ON articles.category_id = categories.id
     JOIN authors ON articles.author_id = authors.id
-    ORDER BY articles.id ASC');
+    ORDER BY articles.id');
     $stmt->execute();
     return  $stmt->fetchAll();
   }

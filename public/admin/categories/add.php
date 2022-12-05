@@ -4,8 +4,15 @@ try {
 
   $category = new Category();
 
-  $title = 'Add Categories';
   $showAddBtn = false;
+  $editing = isset($_GET['id']);
+  $categoryName = isset($_GET['id']) ? $category->getCategory($_GET['id'])['name'] : '';
+
+  $title =   $editing ? "Edit Categories" : "Add Categories";
+
+  ob_start();
+  include __DIR__ . '/../../../views/admin/categories/add.php';
+  $output = ob_get_clean();
 
   if (isset($_POST['add'])) {
     $category->name = htmlspecialchars($_POST['name']);
@@ -13,9 +20,11 @@ try {
     header('location: ./');
   }
 
-  ob_start();
-  include __DIR__ . '/../../../views/admin/categories/add.php';
-  $output = ob_get_clean();
+  if (isset($_POST['edit'])) {
+    $category->name = htmlspecialchars($_POST['name']);
+    $category->editCategory($_GET['id']);
+    header('location: ./');
+  }
 } catch (PDOException $e) {
   $title = 'An error has occurred';
   $output = 'Database error: ' . $e->getMessage() . ' in ' .
