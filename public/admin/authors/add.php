@@ -10,7 +10,7 @@ try {
   $authorName = $editing ? $author->getAuthor($_GET['id'])['name'] : '';
   $authorEmail = $editing ? $author->getAuthor($_GET['id'])['email'] : '';
 
-  $title = $editing ? "Editing item in Authors" : "Add Authors";
+  $title = $editing ? "Editing item in Authors" : "Add Author";
 
   ob_start();
   include __DIR__ . '/../../../views/admin/authors/add.php';

@@ -20,7 +20,7 @@ try {
   $articleCategory = $editing ? $article->getArticle($_GET['id'])['category_id'] : '';
   $articleStatus = $editing ? $article->getArticle($_GET['id'])['status'] : '';
 
-  $title = $editing ? "Editing item in Articles" : "Add Articles";
+  $title = $editing ? "Editing item in Articles" : "Add Article";
 
   ob_start();
   include __DIR__ . '/../../../views/admin/articles/add.php';

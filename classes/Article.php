@@ -26,8 +26,8 @@ class Article
   {
     $stmt = $this->pdo->prepare('SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
     FROM articles 
-    JOIN categories ON articles.category_id = categories.id
-    JOIN authors ON articles.author_id = authors.id
+    LEFT JOIN categories ON articles.category_id = categories.id
+    LEFT JOIN authors ON articles.author_id = authors.id
     ORDER BY articles.id');
     $stmt->execute();
     return  $stmt->fetchAll();
@@ -37,8 +37,8 @@ class Article
   {
     $stmt = $this->pdo->prepare('SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
     FROM articles 
-    JOIN categories ON articles.category_id = categories.id
-    JOIN authors ON articles.author_id = authors.id
+    LEFT JOIN categories ON articles.category_id = categories.id
+    LEFT JOIN authors ON articles.author_id = authors.id
     WHERE status = "Published"
     ORDER BY articles.id DESC');
     $stmt->execute();

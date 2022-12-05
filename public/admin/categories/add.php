@@ -8,7 +8,7 @@ try {
   $editing = isset($_GET['id']);
   $categoryName = $editing ? $category->getCategory($_GET['id'])['name'] : '';
 
-  $title = $editing ? "Editing item in Categories" : "Add Categories";
+  $title = $editing ? "Editing item in Categories" : "Add Categorie";
 
   ob_start();
   include __DIR__ . '/../../../views/admin/categories/add.php';

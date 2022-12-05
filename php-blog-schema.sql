@@ -15,7 +15,8 @@ CREATE TABLE blog.authors (
 CREATE TABLE blog.categories (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE (name)
 );
 
 CREATE TABLE blog.articles (
@@ -26,8 +27,9 @@ CREATE TABLE blog.articles (
   author_id INT,
   category_id INT,
   PRIMARY KEY (id),
-  FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE CASCADE,
-  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+  FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE SET NULL,
+  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
+  UNIQUE (title)
 );
 
 INSERT INTO blog.authors (id, name, email) VALUES 
@@ -47,6 +49,6 @@ SELECT * FROM blog.categories;
 
 SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
 FROM articles 
-JOIN categories ON articles.category_id = categories.id
-JOIN authors ON articles.author_id = authors.id
+LEFT JOIN categories ON articles.category_id = categories.id
+LEFT JOIN authors ON articles.author_id = authors.id
 ORDER BY articles.id ASC;
