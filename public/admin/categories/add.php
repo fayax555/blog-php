@@ -4,7 +4,6 @@ try {
 
   $category = new Category();
 
-  $showAddBtn = false;
   $editing = isset($_GET['id']);
   $categoryName = $editing ? $category->getCategory($_GET['id'])['name'] : '';
 

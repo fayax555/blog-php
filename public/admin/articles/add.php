@@ -11,7 +11,6 @@ try {
   $article = new Article();
 
   $statuses = ['Draft', 'Published'];
-  $showAddBtn = false;
 
   $editing = isset($_GET['id']);
   $articleById = $editing ? $article->getArticle($_GET['id']) : null;

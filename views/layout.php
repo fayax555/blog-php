@@ -2,9 +2,7 @@
 
 <div class='mx-auto grid max-w-[1200px] grid-cols-[200px_auto] gap-4 p-5'>
   <nav>
-    <aside class='mt-24'>
-      <a href="/" class="mb-6 block ">
-        Home Page</a>
+    <aside class='mt-28'>
       <ul class='grid rounded-md bg-slate-100 p-4 text-lg'>
 
         <?php
@@ -29,7 +27,7 @@
 
         <?php
         $titleSingular = ["Categories" => "Category", "Authors" => "Author", "Articles" => "Article"];
-        if ($showAddBtn) : ?>
+        if ($showAddBtn ?? false) : ?>
         <a href="<?= "/admin/" . strtolower($title) . "/add.php"; ?>"
           class="flex items-center gap-2 rounded-md bg-slate-800 px-4 py-2 font-semibold text-slate-100 transition hover:bg-slate-600">
           <svg stroke="currentColor" fill="currentColor" stroke-width="0" t="1551322312294" viewBox="0 0 1024 1024"

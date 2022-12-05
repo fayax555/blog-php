@@ -11,6 +11,8 @@ try {
   $categoryName = $article['category_name'];
   $content = $article['content'];
 
+  $showEditButton = isset($_GET['id']) ? true : false;
+
   include __DIR__ . '/../views/header.php';
   include __DIR__ . '/../views/article.php';
   include __DIR__ . '/../views/footer.php';

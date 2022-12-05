@@ -4,8 +4,6 @@ try {
 
   $author = new Author();
 
-  $showAddBtn = false;
-
   $editing = isset($_GET['id']);
   $authorName = $editing ? $author->getAuthor($_GET['id'])['name'] : '';
   $authorEmail = $editing ? $author->getAuthor($_GET['id'])['email'] : '';
