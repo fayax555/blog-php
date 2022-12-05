@@ -18,7 +18,7 @@
 
       <td class='rounded-r-md'>
         <form method="post" class='flex items-center gap-2'>
-          <a href="add.php?id=<?= $author['id'] ?>" title='edit category'
+          <a href="add.php?id=<?= $author['id'] ?>" title='edit author'
             class="hover:bg-slate-300 p-2.5 transition [&:hover_svg]:text-blue-700 rounded-full">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
               class="text-xl text-slate-600 transitio" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
           </a>
 
           <input type="hidden" name="author_id" value="<?= $author['id'] ?>">
-          <button type='submit' name="delete" title='delete category'
+          <button type='submit' name="delete" title='delete author'
             class="hover:bg-slate-300 p-2.5 transition [&:hover_svg]:text-red-700 rounded-full">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
               class="text-xl text-slate-600 transition hover:text-red-600" height="1em" width="1em"

@@ -15,6 +15,13 @@ class Article
     $this->pdo = $db->connect();
   }
 
+  public function getArticle($id)
+  {
+    $stmt = $this->pdo->prepare('SELECT * FROM articles WHERE id = :id');
+    $stmt->execute([':id' => $id]);
+    return $stmt->fetch();
+  }
+
   public function getArticles()
   {
     $stmt = $this->pdo->prepare('SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
@@ -36,6 +43,19 @@ class Article
       ':category_id' => $this->category_id,
       ':author_id' => $this->author_id,
       ':status' => $this->status
+    ]);
+  }
+
+  public function editArticle($id)
+  {
+    $stmt = $this->pdo->prepare('UPDATE articles SET title = :title, content = :content, category_id = :category_id, author_id = :author_id, status = :status WHERE id = :id');
+    $stmt->execute([
+      ':title' => $this->title,
+      ':content' => $this->content,
+      ':category_id' => $this->category_id,
+      ':author_id' => $this->author_id,
+      ':status' => $this->status,
+      ':id' => $id
     ]);
   }
 

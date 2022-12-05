@@ -11,10 +11,22 @@ try {
   $article = new Article();
 
   $statuses = ['Draft', 'Published'];
-  $title = 'Add Articles';
   $showAddBtn = false;
 
-  if (isset($_POST['submit'])) {
+  $editing = isset($_GET['id']);
+  $articleTitle = $editing ? $article->getArticle($_GET['id'])['title'] : '';
+  $articleContent = $editing ? $article->getArticle($_GET['id'])['content'] : '';
+  $articleAuthor = $editing ? $article->getArticle($_GET['id'])['author_id'] : '';
+  $articleCategory = $editing ? $article->getArticle($_GET['id'])['category_id'] : '';
+  $articleStatus = $editing ? $article->getArticle($_GET['id'])['status'] : '';
+
+  $title = $editing ? "Editing item in Articles" : "Add Articles";
+
+  ob_start();
+  include __DIR__ . '/../../../views/admin/articles/add.php';
+  $output = ob_get_clean();
+
+  if (isset($_POST['add'])) {
     $article->title = htmlspecialchars($_POST['title']);
     $article->content = htmlspecialchars($_POST['content']);
     $article->status = htmlspecialchars($_POST['status']);
@@ -23,10 +35,17 @@ try {
 
     $article->addArticle();
     header('location: ./');
-  } else {
-    ob_start();
-    include __DIR__ . '/../../../views/admin/articles/add.php';
-    $output = ob_get_clean();
+  }
+
+  if (isset($_POST['edit'])) {
+    $article->title = htmlspecialchars($_POST['title']);
+    $article->content = htmlspecialchars($_POST['content']);
+    $article->status = htmlspecialchars($_POST['status']);
+    $article->author_id = htmlspecialchars($_POST['author']);
+    $article->category_id = htmlspecialchars($_POST['category']);
+
+    $article->editArticle($_GET['id']);
+    header('location: ./');
   }
 } catch (PDOException $e) {
   $title = 'An error has occurred';

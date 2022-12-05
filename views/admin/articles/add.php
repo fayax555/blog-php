@@ -8,7 +8,7 @@
       <?php
       foreach ($statuses as $status) :
       ?>
-      <option value="<?= $status ?>"><?= $status ?></option>
+      <option <?= $status === $articleStatus ? 'selected' : '' ?> value="<?= $status ?>"><?= $status ?></option>
       <?php endforeach;
       ?>
     </select>
@@ -20,14 +20,10 @@
     </label>
     <select required id='author' name='author'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
-      <?php
-      if (isset($authors)) :
-        foreach ($authors as $author) :
-      ?>
-      <option value="<?= $author['id'] ?>"><?= $author['name'] ?></option>
-      <?php endforeach;
-      endif;
-      ?>
+      <?php foreach ($authors as $author) : ?>
+      <option <?= $author['id'] === $articleAuthor ? 'selected' : '' ?> value="<?= $author['id'] ?>">
+        <?= $author['name'] ?></option>
+      <?php endforeach ?>
     </select>
   </div>
 
@@ -37,14 +33,11 @@
     </label>
     <select required id='category' name='category'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
-      <?php
-      if (isset($categories)) :
-        foreach ($categories as $category) :
-      ?>
-      <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
-      <?php endforeach;
-      endif;
-      ?>
+      <?php foreach ($categories as $category) : ?>
+      <option <?= $category['id'] === $articleCategory ? 'selected' : '' ?> value="<?= $category['id'] ?>">
+        <?= $category['name'] ?>
+      </option>
+      <?php endforeach ?>
     </select>
   </div>
 
@@ -52,7 +45,7 @@
     <label for='title' class='mb-2 mt-10 block'>
       Title
     </label>
-    <input required type='text' id='title' name='title'
+    <input required type='text' id='title' name='title' value="<?= $articleTitle ?>"
       class='block  rounded-md border-2 w-[min(100%,60ch)] border-slate-500 px-4 py-2 text-lg' />
   </div>
 
@@ -60,10 +53,10 @@
     Content
   </label>
   <textarea required id='content' name='content'
-    class='block min-h-[300px] w-[min(100%,60ch)] rounded-md border-2 border-slate-500 p-4 text-lg'></textarea>
+    class='block min-h-[300px] w-[min(100%,60ch)] rounded-md border-2 border-slate-500 p-4 text-lg'><?= $articleContent ?></textarea>
 
-  <button type='submit' name="submit"
+  <button type='submit' name="<?= $editing ? 'edit' : 'add' ?>"
     class='mt-8 block w-[200px] rounded-md bg-slate-800 px-4 py-2 text-lg font-semibold text-slate-200 transition hover:bg-slate-600'>
-    Add Article
+    <?= $editing ? 'Edit' : 'Add' ?> Article
   </button>
 </form>
