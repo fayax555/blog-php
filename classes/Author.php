@@ -5,6 +5,7 @@ class Author
   private $pdo;
 
   public $name;
+  public $email;
   public function __construct()
   {
     $db = new Database();
@@ -20,7 +21,13 @@ class Author
 
   public function addAuthor()
   {
-    $stmt = $this->pdo->prepare('INSERT INTO authors (name) VALUES (:name)');
-    $stmt->execute([':name' => $this->name]);
+    $stmt = $this->pdo->prepare('INSERT INTO authors (name, email) VALUES (:name, :email)');
+    $stmt->execute([':name' => $this->name, ':email' => $this->email]);
+  }
+
+  public function deleteAuthor($id)
+  {
+    $stmt = $this->pdo->prepare('DELETE FROM authors WHERE id = :id');
+    $stmt->execute([':id' => $id]);
   }
 }

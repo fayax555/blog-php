@@ -24,7 +24,7 @@
         </div>
       </td>
       <td class='rounded-r-md'>
-        <div class='flex items-center gap-2'>
+        <form method="post" class='flex items-center gap-2'>
           <button type='button' title='edit category'
             class="hover:bg-slate-300 p-2.5 transition [&:hover_svg]:text-blue-700 rounded-full">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
@@ -34,7 +34,9 @@
               </path>
             </svg>
           </button>
-          <button type='button' title='delete category'
+
+          <input type="hidden" name="article_id" value="<?= $article['id'] ?>">
+          <button type='submit' title='delete category'
             class="hover:bg-slate-300 p-2.5 transition [&:hover_svg]:text-red-700 rounded-full">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
               class="text-xl text-slate-600 transition hover:text-red-600" height="1em" width="1em"
@@ -44,7 +46,7 @@
               </path>
             </svg>
           </button>
-        </div>
+        </form>
       </td>
     </tr>
     <?php endforeach; ?>

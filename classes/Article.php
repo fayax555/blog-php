@@ -38,4 +38,10 @@ class Article
       ':status' => $this->status
     ]);
   }
+
+  public function deleteArticle($id)
+  {
+    $stmt = $this->pdo->prepare('DELETE FROM article WHERE id = :id');
+    $stmt->execute([':id' => $id]);
+  }
 }

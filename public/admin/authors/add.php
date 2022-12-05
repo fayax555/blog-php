@@ -9,6 +9,7 @@ try {
 
   if (isset($_POST['submit'])) {
     $author->name = htmlspecialchars($_POST['name']);
+    $author->email = htmlspecialchars($_POST['email']);
 
     $author->addAuthor();
     header('location: ./');
