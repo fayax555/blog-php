@@ -12,6 +12,10 @@
   html {
     font-family: 'Nunito', sans-serif;
   }
+
+  body {
+    margin-bottom: 5rem;
+  }
   </style>
 </head>
 

@@ -9,6 +9,13 @@ try {
   $categories = $category->getCategories();
   $title = 'Home';
 
+  if ($_GET['category'] ?? false) {
+    // filter articles by category
+    $articles = array_filter($articles, function ($article) {
+      return $article['category_name'] === $_GET['category'];
+    });
+  }
+
   include __DIR__ . '/../views/header.php';
   include __DIR__ . '/../views/home.php';
   include __DIR__ . '/../views/footer.php';
