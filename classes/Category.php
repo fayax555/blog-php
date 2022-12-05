@@ -4,7 +4,6 @@ class Category
 {
   private $pdo;
 
-  public $id;
   public $name;
 
   public function __construct()

@@ -594,12 +594,24 @@ video {
   width: 0.75rem;
 }
 
+.w-\[min\(100\%\2c 60ch\)\] {
+  width: min(100%,60ch);
+}
+
+.min-w-full {
+  min-width: 100%;
+}
+
 .max-w-\[1000px\] {
   max-width: 1000px;
 }
 
 .max-w-\[1200px\] {
   max-width: 1200px;
+}
+
+.max-w-\[50ch\] {
+  max-width: 50ch;
 }
 
 .translate-y-4 {

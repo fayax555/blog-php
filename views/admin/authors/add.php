@@ -7,6 +7,6 @@
 
   <button type='submit' name="submit"
     class='mt-8 block w-[200px] rounded-md bg-slate-800 px-4 py-2 text-lg font-semibold text-slate-200 transition hover:bg-slate-600'>
-    Add Category
+    Add Author
   </button>
 </form>

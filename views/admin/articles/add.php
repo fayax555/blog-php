@@ -48,17 +48,19 @@
     </select>
   </div>
 
-  <label for='title' class='mb-2 mt-10 block'>
-    Title
-  </label>
-  <input required type='text' id='title' name='title'
-    class='block w-full rounded-md border-2 border-slate-500 px-4 py-2 text-lg' />
+  <div>
+    <label for='title' class='mb-2 mt-10 block'>
+      Title
+    </label>
+    <input required type='text' id='title' name='title'
+      class='block  rounded-md border-2 w-[min(100%,60ch)] border-slate-500 px-4 py-2 text-lg' />
+  </div>
 
   <label for='content' class='mb-2 mt-8 block'>
     Content
   </label>
   <textarea required id='content' name='content'
-    class='block min-h-[300px] w-full rounded-md border-2 border-slate-500 p-4 text-lg'></textarea>
+    class='block min-h-[300px] w-[min(100%,60ch)] rounded-md border-2 border-slate-500 p-4 text-lg'></textarea>
 
   <button type='submit' name="submit"
     class='mt-8 block w-[200px] rounded-md bg-slate-800 px-4 py-2 text-lg font-semibold text-slate-200 transition hover:bg-slate-600'>

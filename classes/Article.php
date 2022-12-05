@@ -4,7 +4,6 @@ class Article
 {
   private $pdo;
 
-  public $id;
   public $title;
   public $content;
   public $category_id;
