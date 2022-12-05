@@ -3,6 +3,8 @@
 <div class='mx-auto grid max-w-[1200px] grid-cols-[200px_auto] gap-4 p-5'>
   <nav>
     <aside class='mt-24'>
+      <a href="/" class="mb-6 block ">
+        Home Page</a>
       <ul class='grid rounded-md bg-slate-100 p-4 text-lg'>
 
         <?php

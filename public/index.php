@@ -5,7 +5,7 @@ try {
 
   $article = new Article();
   $category = new Category();
-  $articles = $article->getArticles();
+  $articles = $article->getPublishedArticles();
   $categories = $category->getCategories();
   $title = 'Home';
 
