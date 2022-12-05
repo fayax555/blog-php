@@ -17,7 +17,11 @@ class Article
 
   public function getArticle($id)
   {
-    $stmt = $this->pdo->prepare('SELECT * FROM articles WHERE id = :id');
+    $stmt = $this->pdo->prepare('SELECT *, categories.name as category_name, authors.name as author_name
+    FROM articles 
+    LEFT JOIN categories ON articles.category_id = categories.id
+    LEFT JOIN authors ON articles.author_id = authors.id
+    WHERE articles.id = :id');
     $stmt->execute([':id' => $id]);
     return $stmt->fetch();
   }
@@ -60,7 +64,9 @@ class Article
 
   public function editArticle($id)
   {
-    $stmt = $this->pdo->prepare('UPDATE articles SET title = :title, content = :content, category_id = :category_id, author_id = :author_id, status = :status WHERE id = :id');
+    $stmt = $this->pdo->prepare('UPDATE articles SET 
+    title = :title, content = :content, category_id = :category_id, author_id = :author_id, status = :status
+    WHERE id = :id');
     $stmt->execute([
       ':title' => $this->title,
       ':content' => $this->content,

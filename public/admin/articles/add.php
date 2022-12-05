@@ -14,11 +14,13 @@ try {
   $showAddBtn = false;
 
   $editing = isset($_GET['id']);
-  $articleTitle = $editing ? $article->getArticle($_GET['id'])['title'] : '';
-  $articleContent = $editing ? $article->getArticle($_GET['id'])['content'] : '';
-  $articleAuthor = $editing ? $article->getArticle($_GET['id'])['author_id'] : '';
-  $articleCategory = $editing ? $article->getArticle($_GET['id'])['category_id'] : '';
-  $articleStatus = $editing ? $article->getArticle($_GET['id'])['status'] : '';
+  $articleById = $editing ? $article->getArticle($_GET['id']) : null;
+
+  $articleTitle = $articleById['title'] ?? '';
+  $articleContent = $articleById['content'] ?? '';
+  $articleAuthor = $articleById['author_id'] ?? '';
+  $articleCategory = $articleById['category_id'] ?? '';
+  $articleStatus = $articleById['status'] ?? '';
 
   $title = $editing ? "Editing item in Articles" : "Add Article";
 

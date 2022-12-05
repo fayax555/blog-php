@@ -22,7 +22,7 @@ CREATE TABLE blog.categories (
 CREATE TABLE blog.articles (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL,
-  content VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
   status VARCHAR(255) NOT NULL,
   author_id INT,
   category_id INT,
