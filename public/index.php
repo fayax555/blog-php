@@ -3,10 +3,10 @@ try {
   include __DIR__ . '/../classes/Article.php';
   include __DIR__ . '/../classes/Category.php';
 
-  $articleDB = new Article();
-  $categoryDB = new Category();
-  $articles = $articleDB->getArticles();
-  $categories = $categoryDB->getCategories();
+  $article = new Article();
+  $category = new Category();
+  $articles = $article->getArticles();
+  $categories = $category->getCategories();
   $title = 'Home';
 
   include __DIR__ . '/../views/header.php';
