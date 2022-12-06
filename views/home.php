@@ -29,9 +29,11 @@
     <a href="/article.php?id=<?= $article['id'] ?>"
       class='rounded-md border-2 border-transparent bg-slate-100 hover:border-slate-600'>
       <article class='p-4'>
+        <?php if ($article['category_name']) : ?>
         <span class='rounded-full font-bold bg-slate-300 px-4 py-1 text-xs text-slate-800'>
           <?= $article['category_name']  ?>
         </span>
+        <?php endif ?>
         <div class='py-4'>
           <h2 class='text-xl font-semibold'><?= $article['title'] ?></h2>
           <p class='text-sm text-slate-700'>

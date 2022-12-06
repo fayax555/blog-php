@@ -11,16 +11,12 @@ try {
     $category->name = htmlspecialchars($_POST['name']);
     $category->addCategory();
     header('location: /admin/categories');
-  }
-
-  if (isset($_POST['edit'])) {
+  } else if (isset($_POST['edit'])) {
     $category->name = htmlspecialchars($_POST['name']);
     $category->editCategory($_GET['id']);
     header('Location: /admin/categories');
-  }
-
-  if (isset($_POST['delete']) && isset($_POST['category_id'])) {
-    $category->deleteCategory($_POST['category_id']);
+  } else if (isset($_POST['delete_category'])) {
+    $category->deleteCategory($_POST['delete_category']);
     header('location: /admin/categories');
   }
 
