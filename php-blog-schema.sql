@@ -1,9 +1,8 @@
 USE blog;
 
-DROP TABLE blog.articles;
-DROP TABLE blog.authors;
-DROP TABLE blog.categories;
-
+DROP TABLE IF EXISTS blog.articles;
+DROP TABLE IF EXISTS blog.authors;
+DROP TABLE IF EXISTS blog.categories;
 
 CREATE TABLE blog.authors (
   id INT NOT NULL AUTO_INCREMENT,
