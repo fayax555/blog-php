@@ -23,10 +23,6 @@ try {
 
   $title = $editing ? "Editing item in Articles" : "Add Article";
 
-  ob_start();
-  include __DIR__ . '/../../../views/admin/articles/add.php';
-  $output = ob_get_clean();
-
   if (isset($_POST['add'])) {
     $article->title = htmlspecialchars($_POST['title']);
     $article->content = htmlspecialchars($_POST['content']);
@@ -35,7 +31,7 @@ try {
     $article->category_id = htmlspecialchars($_POST['category']);
 
     $article->addArticle();
-    header('location: ./');
+    header('location: /admin/articles');
   }
 
   if (isset($_POST['edit'])) {
@@ -46,8 +42,12 @@ try {
     $article->category_id = htmlspecialchars($_POST['category']);
 
     $article->editArticle($_GET['id']);
-    header('location: ./');
+    header('location: /admin/articles');
   }
+
+  ob_start();
+  include __DIR__ . '/../../../views/admin/articles/add.php';
+  $output = ob_get_clean();
 } catch (PDOException $e) {
   $title = 'An error has occurred';
   $output = 'Database error: ' . $e->getMessage() . ' in ' .

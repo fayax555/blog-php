@@ -9,7 +9,7 @@ try {
 
   if (isset($_POST['delete']) && isset($_POST['article_id'])) {
     $article->deleteArticle($_POST['article_id']);
-    header('location: ./');
+    header('location: /admin/articles');
   }
 
   ob_start();

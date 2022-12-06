@@ -1,10 +1,25 @@
-<form method="post">
+<form method="post" class='pt-2 px-4 max-w-[480px] grid grid-cols-[320px_auto] gap-4 items-center'>
+  <input required type='text' placeholder="category name" id='name' name='name'
+    class='block w-[min(100%,60ch)] rounded-md border-2 border-slate-500 px-4 py-1 text-lg' />
+  <button type='submit' name="add"
+    class='flex items-center gap-2 rounded-md bg-slate-800 px-4 h-full text-lg font-semibold text-slate-200 transition hover:bg-slate-600'>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" t="1551322312294" viewBox="0 0 1024 1024"
+      version="1.1" class="text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+      <defs></defs>
+      <path d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z"></path>
+      <path d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z"></path>
+    </svg>
+    <span>Add</span>
+  </button>
+</form>
+
+<form method="post" class="mt-8">
   <table>
     <thead class='border-b-[1px] text-sm text-slate-600'>
       <tr class='[&>*]:px-5 [&>*]:text-left [&>*]:font-light'>
         <th class='py-2'>ID</th>
-        <th>Name</th>
-        <th class="translate-x-2">Action</th>
+        <th class="w-[240px]">Name</th>
+        <th class="translate-x-2"></th>
       </tr>
     </thead>
 
@@ -14,7 +29,7 @@
         <td class='rounded-l-md py-4 font-semibold'><?= $category['id'] ?></td>
         <td class='py-4 font-semibold'>
           <?php if ((int)($_GET['id'] ?? null) === $category['id']) : ?>
-          <input required type="text" name="name" value="<?= $category['name'] ?>"
+          <input required autofocus type="text" name="name" value="<?= $category['name'] ?>"
             class="bg-slate-200 border-slate-800 border-2 rounded-md py-1 px-4 block">
           <?php else : ?>
           <?= $category['name'] ?>

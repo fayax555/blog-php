@@ -10,16 +10,12 @@ try {
 
   $title = $editing ? "Editing item in Authors" : "Add Author";
 
-  ob_start();
-  include __DIR__ . '/../../../views/admin/authors/add.php';
-  $output = ob_get_clean();
-
   if (isset($_POST['add'])) {
     $author->name = htmlspecialchars($_POST['name']);
     $author->email = htmlspecialchars($_POST['email']);
 
     $author->addAuthor();
-    header('location: ./');
+    header('location: /admin/authors');
   }
 
   if (isset($_POST['edit'])) {
@@ -27,8 +23,12 @@ try {
     $author->email = htmlspecialchars($_POST['email']);
 
     $author->editAuthor($_GET['id']);
-    header('location: ./');
+    header('location: /admin/authors');
   }
+
+  ob_start();
+  include __DIR__ . '/../../../views/admin/authors/add.php';
+  $output = ob_get_clean();
 } catch (PDOException $e) {
   $title = 'An error has occurred';
   $output = 'Database error: ' . $e->getMessage() . ' in ' .

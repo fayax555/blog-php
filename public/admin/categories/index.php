@@ -6,21 +6,20 @@ try {
   $categories = $category->getCategories();
 
   $title = 'Categories';
-  $showAddBtn = true;
 
-  if (isset($_POST['edit'])) {
-    $category->name = $_POST['name'];
-    $category->editCategory($_POST['id']);
-    header('Location: /admin/categories');
+  if (isset($_POST['add'])) {
+    $category->name = htmlspecialchars($_POST['name']);
+    $category->addCategory();
+    header('location: /admin/categories');
   }
 
   if (isset($_POST['edit'])) {
     $category->name = htmlspecialchars($_POST['name']);
     $category->editCategory($_GET['id']);
-    header('location: ./');
+    header('Location: /admin/categories');
   }
 
-  if (isset($_POST['category_id']) && isset($_POST['delete'])) {
+  if (isset($_POST['delete']) && isset($_POST['category_id'])) {
     $category->deleteCategory($_POST['category_id']);
     header('location: /admin/categories');
   }

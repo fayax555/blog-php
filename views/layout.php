@@ -6,7 +6,7 @@
       <ul class='grid rounded-md bg-slate-100 p-4 text-lg'>
 
         <?php
-        $navItems = ['Articles', 'Categories', 'Authors'];
+        $navItems = ['Articles', 'Authors', 'Categories'];
         $activeNavItem = explode('/', $_SERVER['REQUEST_URI'])[2];
         foreach ($navItems as $navItem) : ?>
         <li>
