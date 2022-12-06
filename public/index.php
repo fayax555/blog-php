@@ -6,7 +6,7 @@ try {
   $article = new Article();
   $category = new Category();
   $articles = $article->getPublishedArticles();
-  $categories = $category->getCategories();
+  $categories = $category->getCategories(true);
   $title = 'Home';
 
   if ($_GET['category'] ?? false) {

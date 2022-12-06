@@ -19,9 +19,14 @@ class Category
     return $stmt->fetch();
   }
 
-  public function getCategories()
+  public function getCategories($shouldContainArticles = false)
   {
-    $stmt = $this->pdo->prepare('SELECT * FROM categories ORDER BY id');
+    if ($shouldContainArticles) {
+      $stmt = $this->pdo->prepare('SELECT * FROM categories WHERE id IN (SELECT category_id FROM articles)');
+    } else {
+      $stmt = $this->pdo->prepare('SELECT * FROM categories ORDER BY id');
+    }
+
     $stmt->execute();
     return $stmt->fetchAll();
   }
@@ -34,7 +39,6 @@ class Category
 
   public function editCategory($id)
   {
-    print_r($id);
     $stmt = $this->pdo->prepare('UPDATE categories SET name = :name WHERE id = :id');
     $stmt->execute([':name' => $this->name, ':id' => $id]);
   }
