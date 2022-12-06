@@ -5,9 +5,9 @@ try {
   $category = new Category();
 
   $editing = isset($_GET['id']);
-  $categoryName = $editing ? $category->getCategory($_GET['id'])['name'] : '';
+  $categoryName =  '';
 
-  $title = $editing ? "Editing item in Categories" : "Add Categorie";
+  $title = "Add Category";
 
   ob_start();
   include __DIR__ . '/../../../views/admin/categories/add.php';
@@ -16,12 +16,6 @@ try {
   if (isset($_POST['add'])) {
     $category->name = htmlspecialchars($_POST['name']);
     $category->addCategory();
-    header('location: ./');
-  }
-
-  if (isset($_POST['edit'])) {
-    $category->name = htmlspecialchars($_POST['name']);
-    $category->editCategory($_GET['id']);
     header('location: ./');
   }
 } catch (PDOException $e) {

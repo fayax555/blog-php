@@ -34,6 +34,7 @@ class Category
 
   public function editCategory($id)
   {
+    print_r($id);
     $stmt = $this->pdo->prepare('UPDATE categories SET name = :name WHERE id = :id');
     $stmt->execute([':name' => $this->name, ':id' => $id]);
   }
