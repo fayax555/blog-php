@@ -24,7 +24,7 @@
   <main>
     <section class="mb-40 h-full p-5">
       <header class="mb-10 flex items-center gap-10">
-        <h1 class="px-5 text-3xl font-semibold text-slate-800"><?= $title; ?></h1>
+        <h1 class="px-5 text-3xl font-semibold text-slate-800"><?= $title ?></h1>
 
         <?php
         $titleSingular = ["Categories" => "Category", "Authors" => "Author", "Articles" => "Article"];

@@ -67,7 +67,7 @@ In order to reduce development time, developers can use PHP libraries instead of
 (6, 'JavaScript to Know for React', "One of the things I love most about React compared to other frameworks that I've used is how exposed you are to JavaScript when you're using it. 
 There's no template DSL (JSX compiles to sensible JavaScript), 
 the component API has only gotten simpler with the addition of React Hooks, 
-and the framework offers you very little abstraction outside the core UI concerns it's intended to solve.", 'Published', 1, 1);
+and the framework offers you very little abstraction outside the core UI concerns it's intended to solve.", 'Published', 3, 1);
 
 SELECT * FROM blog.authors;
 SELECT * FROM blog.categories;

@@ -20,6 +20,7 @@
     </label>
     <select required id='author' name='author'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
+      <option hidden disabled selected value=''>Choose Author</option>
       <?php foreach ($authors as $author) : ?>
       <option <?= $author['id'] === $articleAuthor ? 'selected' : '' ?> value="<?= $author['id'] ?>">
         <?= $author['name'] ?></option>
@@ -33,6 +34,7 @@
     </label>
     <select required id='category' name='category'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
+      <option hidden disabled selected value=''>Choose Category</option>
       <?php foreach ($categories as $category) : ?>
       <option <?= $category['id'] === $articleCategory ? 'selected' : '' ?> value="<?= $category['id'] ?>">
         <?= $category['name'] ?>

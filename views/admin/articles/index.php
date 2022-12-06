@@ -3,7 +3,7 @@
     <tr class='[&>*]:px-5 [&>*]:text-left [&>*]:font-light'>
       <th class='py-2'>ID</th>
       <th>Title</th>
-      <th>Author</th>
+      <th class="min-w-[150px]">Author</th>
       <th>Category</th>
       <th>Status</th>
       <th class="translate-x-2">Action</th>
