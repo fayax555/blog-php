@@ -19,7 +19,7 @@
       <td><?= $article['author_name'] ?></td>
       <td><?= $article['category_name'] ?></td>
       <td>
-        <div title='Published'
+        <div title='<?= $article['status'] === 'Published' ? 'Published' : 'Draft' ?>'
           class='h-3 w-3 rounded-full <?= $article['status'] === 'Published' ? 'bg-teal-500' : 'bg-slate-300' ?>'>
         </div>
       </td>

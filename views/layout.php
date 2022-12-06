@@ -10,7 +10,7 @@
         $activeNavItem = explode('/', $_SERVER['REQUEST_URI'])[2];
         foreach ($navItems as $navItem) : ?>
         <li>
-          <a class="<?= $activeNavItem === strtolower($navItem) ? 'bg-slate-200 font-semibold' : 'hover:bg-slate-200' ?> block w-full rounded-md py-2 px-4"
+          <a class="<?= $activeNavItem === strtolower($navItem) ? 'bg-slate-300 font-semibold' : 'hover:bg-slate-200' ?> block w-full rounded-md py-2 px-4"
             href="/admin/<?= strtolower($navItem) ?>">
             <?= $navItem ?>
           </a>
