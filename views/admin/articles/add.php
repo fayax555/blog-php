@@ -5,12 +5,9 @@
     </label>
     <select required id='status' name='status'
       class='w-[200px] cursor-pointer rounded-md border-r-[12px] bg-slate-200 px-4 py-2 font-semibold'>
-      <?php
-      foreach ($statuses as $status) :
-      ?>
+      <?php foreach ($statuses as $status) : ?>
       <option <?= $status === $articleStatus ? 'selected' : '' ?> value="<?= $status ?>"><?= $status ?></option>
-      <?php endforeach;
-      ?>
+      <?php endforeach ?>
     </select>
   </div>
 

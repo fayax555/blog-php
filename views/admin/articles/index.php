@@ -25,7 +25,7 @@
       </td>
       <td class='rounded-r-md'>
         <form method="post" class='flex items-center gap-2'>
-          <a href="add.php?id=<?= $article['id'] ?>" name="edit" title='edit article'
+          <a href="/admin/articles/add.php?id=<?= $article['id'] ?>" name="edit" title='edit article'
             class="hover:bg-slate-300 p-2.5 transition [&:hover_svg]:text-blue-700 rounded-full">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024"
               class="text-xl text-slate-600 transitio" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
