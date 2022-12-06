@@ -22,7 +22,7 @@ class Category
   public function getCategories($shouldContainArticles = false)
   {
     if ($shouldContainArticles) {
-      $stmt = $this->pdo->prepare('SELECT * FROM categories WHERE id IN (SELECT category_id FROM articles)');
+      $stmt = $this->pdo->prepare('SELECT * FROM categories WHERE id IN (SELECT category_id FROM articles WHERE status = "Published")');
     } else {
       $stmt = $this->pdo->prepare('SELECT * FROM categories ORDER BY id');
     }
