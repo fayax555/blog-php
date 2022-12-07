@@ -28,7 +28,7 @@
       <tr class='rounded-md pt-5 hover:bg-slate-100 [&>*]:px-5'>
         <td class='rounded-l-md py-4 font-semibold'><?= $category['id'] ?></td>
         <td class='py-4 font-semibold'>
-          <?php if ((int)($_GET['id'] ?? null) === $category['id']) : ?>
+          <?php if ((int)($_GET['id'] ?? null) === (int)$category['id']) : ?>
           <input required autofocus type="text" name="name" value="<?= $category['name'] ?>"
             class="bg-slate-200 border-slate-800 border-2 rounded-md py-1 px-4 block">
           <?php else : ?>
@@ -39,7 +39,7 @@
         <td class='rounded-r-md'>
           <div class='flex items-center gap-2'>
 
-            <?php if ((int)($_GET['id'] ?? null) === $category['id']) : ?>
+            <?php if ((int)($_GET['id'] ?? null) === (int)$category['id']) : ?>
             <button type="submit" name="edit"
               class="bg-slate-800 text-slate-100 rounded-md px-6 py-2 hover:bg-slate-600 transition">Save</button>
             <?php else : ?>

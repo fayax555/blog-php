@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS blog;
+
 USE blog;
 
 DROP TABLE IF EXISTS blog.articles;
@@ -67,20 +69,3 @@ In order to reduce development time, developers can use PHP libraries instead of
 There's no template DSL (JSX compiles to sensible JavaScript), 
 the component API has only gotten simpler with the addition of React Hooks, 
 and the framework offers you very little abstraction outside the core UI concerns it's intended to solve.", 'Published', 3, 1);
-
-SELECT * FROM blog.authors;
-SELECT * FROM blog.categories;
-
-SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
-FROM articles 
-LEFT JOIN categories ON articles.category_id = categories.id
-LEFT JOIN authors ON articles.author_id = authors.id
-ORDER BY articles.id ASC;
-
-SELECT articles.id, title, content, status, categories.name as category_name, authors.name as author_name
-    FROM articles  
-    LEFT JOIN categories ON articles.category_id = categories.id
-    LEFT JOIN authors ON articles.author_id = authors.id
-    WHERE articles.id = 1
-    ORDER BY articles.id;
-
