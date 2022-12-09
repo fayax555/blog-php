@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS blog.articles;
 DROP TABLE IF EXISTS blog.authors;
 DROP TABLE IF EXISTS blog.categories;
 
-CREATE TABLE blog.authors (
+CREATE TABLE IF NOT EXISTS blog.authors (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
@@ -14,20 +14,21 @@ CREATE TABLE blog.authors (
   UNIQUE (email)
 );
 
-CREATE TABLE blog.categories (
+CREATE TABLE IF NOT EXISTS blog.categories (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
   PRIMARY KEY (id),
   UNIQUE (name)
 );
 
-CREATE TABLE blog.articles (
+CREATE TABLE IF NOT EXISTS blog.articles (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL,
   content TEXT NOT NULL,
   status VARCHAR(255) NOT NULL,
   author_id INT,
   category_id INT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (author_id) REFERENCES authors(id) ON DELETE SET NULL,
   FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL,

@@ -6,6 +6,7 @@
       <th class="min-w-[150px]">Author</th>
       <th>Category</th>
       <th>Status</th>
+      <th>Created At</th>
       <th class="translate-x-2">Action</th>
     </tr>
   </thead>
@@ -23,6 +24,8 @@
           class='h-3 w-3 rounded-full <?= $article['status'] === 'Published' ? 'bg-teal-500' : 'bg-slate-300' ?>'>
         </div>
       </td>
+      <td><?= $article['created_at'] ?></td>
+
       <td class='rounded-r-md'>
         <form method="post" class='flex items-center gap-2'>
           <a href="/admin/articles/add.php?id=<?= $article['id'] ?>" name="edit" title='edit article'
